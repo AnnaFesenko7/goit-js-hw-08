@@ -6,27 +6,32 @@ const player = new Player(iframe);
     
 setLastSavedTime()
 
+
+
+// let intervalId = null;
+
 // player.on('play', myTimer);
+// player.on('pause',  function() { clearInterval(intervalId) } )
        
 // function myTimer(e) {
-//     setInterval(getCurrentTimeForLocalStorage, 1000);
-//     console.log(myTimer)
+//    intervalId = setInterval(getCurrentTimeForLocalStorage, 1000);
+//    console.log("🚀 ~ file: 02-video.js ~ line 20 ~ myTimer ~ intervalId ", intervalId )
+    
 // }
 
-// function stopTimer() {
-//    clearInterval(myTimer);
-// }
+
 
 // function getCurrentTimeForLocalStorage() {
 //     player.getCurrentTime().then(function (seconds) {
 //         console.log(seconds)
 //         localStorage.setItem('current-time', seconds);
-//         stopTimer()
+       
 //     }).catch(function (error) {
 //         console.log(error)
 //     });
     
 // }
+
 
 player.on('play', debounce(getCurrentTimeForLocalStorage, 1));
       
@@ -68,6 +73,7 @@ function setPlayerOnTime(savedTime) {
         }
     });
 }
+
 
 
 
