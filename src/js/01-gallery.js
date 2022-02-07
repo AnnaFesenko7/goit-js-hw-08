@@ -9,7 +9,6 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 const galleryContainer = document.querySelector('.gallery');
 const cardsMarkup = createGalleryCardMarkup(galleryItems);
 galleryContainer.insertAdjacentHTML('beforeend', cardsMarkup);
-galleryContainer.addEventListener('click', lightbox);
 
 
 

@@ -34,12 +34,13 @@ setLastSavedTime()
 
 
 player.on('play', debounce(getCurrentTimeForLocalStorage, 1));
+
       
 function getCurrentTimeForLocalStorage() {
     player.getCurrentTime().then(function (seconds) {
-        console.log("🚀 ~ file: 02-video.js ~ line 35 ~ seconds", seconds)
-              
+                      
         localStorage.setItem('current-time', seconds);
+        console.log("🚀 ~ file: 02-video.js ~ line 43 ~ seconds", seconds)
         
     }).catch(function (error) {
         console.log(error)
@@ -51,29 +52,12 @@ function setLastSavedTime() {
     console.log("🚀 ~ file: 02-video.js ~ line 47 ~ setLastSavedTime ~ savedTime", savedTime)
     
     if (savedTime) {
-        setPlayerOnTime(savedTime);
+        player.setCurrentTime(savedTime);
     }
    
 }
 
  
-function setPlayerOnTime(savedTime) {
-    player.setCurrentTime(savedTime).then(function (seconds) {
-        console.log("🚀 ~ file: 02-video.js ~ line 55 ~ seconds", seconds)
-        
-    }).catch(function (error) {
-        switch (error.name) {
-            case 'RangeError':
-                // the time was less than 0 or greater than the video’s duration
-                break;
-
-            default:
-                // some other error occurred
-                break;
-        }
-    });
-}
-
 
 
 

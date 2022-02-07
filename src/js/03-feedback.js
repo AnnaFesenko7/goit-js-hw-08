@@ -34,5 +34,6 @@ function onFormSubm(e) {
     e.preventDefault();
     console.log('Отправляем форму');
     e.currentTarget.reset()
+    formData = {}
     localStorage.removeItem(STORAGE_KEY)
 }
